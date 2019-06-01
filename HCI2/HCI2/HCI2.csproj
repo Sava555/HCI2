@@ -52,13 +52,69 @@
     <Reference Include="WriteableBitmapEx.Wpf, Version=1.6.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\WriteableBitmapEx.1.6.2\lib\net40\WriteableBitmapEx.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DodajEtikete.xaml.cs">
+      <DependentUpon>DodajEtikete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditEtiketa.xaml.cs">
+      <DependentUpon>EditEtiketa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditTipLokala.xaml.cs">
+      <DependentUpon>EditTipLokala.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Etiketa.cs" />
+    <Compile Include="FormaEtiketa.xaml.cs">
+      <DependentUpon>FormaEtiketa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FormaTipLokala.xaml.cs">
+      <DependentUpon>FormaTipLokala.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TipLokala.cs" />
+    <Page Include="DodajEtikete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditEtiketa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditLokal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditTipLokala.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FormaEtiketa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FormaLokal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FormaTipLokala.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -70,10 +126,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="EditLokal.xaml.cs">
+      <DependentUpon>EditLokal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FileIO.cs" />
     <Compile Include="FormaLokal.xaml.cs">
       <DependentUpon>FormaLokal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Komande\RoutedCommands.cs" />
     <Compile Include="Lokal.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -105,6 +165,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Data\etikete.bin" />
+    <None Include="Data\mapa1.bin" />
+    <None Include="Data\tipoviLokala.bin" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -113,6 +176,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Data\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\1.jpg" />
+    <Resource Include="Data\mapa1.gif" />
+    <Resource Include="Data\mapa2.jpg" />
+    <Resource Include="Data\mapa2t.jpg" />
+    <Resource Include="Data\mapa3.jpg" />
+    <Resource Include="Data\mapa4.jpg" />
+    <Resource Include="Data\Prozori.png" />
+    <Resource Include="Data\tip1.jpg" />
+    <Resource Include="Data\tipHCI2.TipLokala.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

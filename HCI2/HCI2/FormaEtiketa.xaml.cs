@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace HCI2
+{
+    /// <summary>
+    /// Interaction logic for FormaEtiketa.xaml
+    /// </summary>
+    public partial class FormaEtiketa : Window
+    {
+        private MainWindow Window { get; set; }
+        public FormaEtiketa(MainWindow window)
+        {
+            InitializeComponent();
+            this.Window = window;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Etiketa et = new Etiketa(Id.Text, Opis.Text, ClrPcker.SelectedColor);
+            Window.Etikete.Add(et);
+            FileIO.UpisiLokal("etikete.bin", Window.Etikete);
+            this.Close();
+        }
+    }
+}

@@ -21,19 +21,29 @@ namespace HCI2
     /// </summary>
     public partial class FormaLokal : Window
     {
-        public ObservableCollection<Lokal> Items;
+        public ObservableCollection<Lokal> Items { get; set; }
+        public ObservableCollection<TipLokala> TipoviLokala { get; set; }
+        public MainWindow Window { get; set; }
         public String IconPath { get; set; }
+        public String ActiveMap { get; set; }
+        public ObservableCollection<Etiketa> OdabraneEtikete { get; set; }
 
         public FormaLokal()
         {
             InitializeComponent();
         }
 
-        public FormaLokal(ObservableCollection<Lokal> Items)
-        {
-            this.Items = Items;
+        public FormaLokal(MainWindow window)
+        { 
             InitializeComponent();
             IconPath = "";
+            this.Window = window;
+            this.Items = window.Items;
+            this.ActiveMap = window.ActiveMap;
+            this.TipoviLokala = window.TipoviLokala;
+            this.OdabraneEtikete = new ObservableCollection<Etiketa>();
+            Tip.ItemsSource = window.TipoviLokala;
+            Tip.SelectedIndex = 0;
         }
 
         private void btnOpenFile_Click(object sender, RoutedEventArgs e)
@@ -48,8 +58,8 @@ namespace HCI2
             if (result == true)
             {
                 string sourcePath = dlg.FileName;
-                string targetPath = "./" + System.IO.Path.GetFileName(sourcePath);
-                System.IO.File.Copy(sourcePath, targetPath);
+                string targetPath = "../../Data/" + Id.Text + "." + sourcePath.Split('.')[1];
+                System.IO.File.Copy(sourcePath, targetPath,true);
                 IconPath = targetPath;
             }
         }
@@ -86,12 +96,19 @@ namespace HCI2
                     kat = KategorijeCena.IZUZETNO_VISOKE;
                     break;
             }
-            Lokal l = new Lokal(Id.Text, Naziv.Text, Tip.Text, sluzenje, IconPath.Equals("") ? "./icon.png" : IconPath, DostupnoHendikepiranim.IsChecked ?? false, DozvoljenoPusenje.IsChecked ?? false, PrimaRezervacije.IsChecked ?? false, kat, Int32.Parse(Kapacitet.Text), DatumOtvaranja.SelectedDate.GetValueOrDefault(DateTime.Now));
+            TipLokala tLokala = Tip.SelectedItem as TipLokala;
+            Lokal l = new Lokal(Id.Text, Naziv.Text, tLokala, sluzenje, IconPath.Equals("") ? "" : IconPath, DostupnoHendikepiranim.IsChecked ?? false, DozvoljenoPusenje.IsChecked ?? false, PrimaRezervacije.IsChecked ?? false, kat, Int32.Parse(Kapacitet.Text), DatumOtvaranja.SelectedDate.GetValueOrDefault(DateTime.Now));
+            l.Etikete = this.OdabraneEtikete;
             l.UcitajIkonicu();
-            this.Items.Add(l);
-            FileIO.UpisiLokal("./lokali.bin", this.Items);
+            this.Items.Insert(0, l);
+            FileIO.UpisiLokal(this.ActiveMap.Split('.')[0] + ".bin", this.Items);
             this.Close();
         }
 
+        private void DodajEtikete(object sender, RoutedEventArgs e)
+        {
+            dodajEtikete de = new dodajEtikete(Window, this.OdabraneEtikete);
+            de.ShowDialog();
+        }
     }
 }

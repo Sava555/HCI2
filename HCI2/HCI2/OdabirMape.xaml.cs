@@ -26,23 +26,85 @@ namespace HCI2
             this.window = window;
         }
 
-        private void NoviSad_Selected(object sender, RoutedEventArgs e)
+        private void Mapa1_Selected(object sender, KeyEventArgs e)
         {
-            window.ActiveMap = "./ns.gif";
+            if (e.Key == Key.Return)
+            {
+                window.ActiveMap = "mapa1.gif";
+                window.Items = window.Mapa1;
+                window.lvDataBinding.ItemsSource = window.Items;
+                window.OnLoad();
+                e.Handled = true;
+                this.Close();
+            }
+        }
+
+        private void Mapa2_Selected(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                window.ActiveMap = "mapa2.jpg";
+                window.Items = window.Mapa2;
+                window.lvDataBinding.ItemsSource = window.Items;
+                window.OnLoad();
+                this.Close();
+            }
+        }
+
+        private void Mapa3_Selected(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                window.ActiveMap = "mapa3.jpg";
+                window.Items = window.Mapa3;
+                window.lvDataBinding.ItemsSource = window.Items;
+                window.OnLoad();
+                this.Close();
+            }
+        }
+
+        private void Mapa4_Selected(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                window.ActiveMap = "mapa4.jpg";
+                window.Items = window.Mapa4;
+                window.lvDataBinding.ItemsSource = window.Items;
+                window.OnLoad();
+                this.Close();
+            }
+        }
+
+        private void Mapa1_Selected_click(object sender, MouseButtonEventArgs e)
+        {
+            window.ActiveMap = "mapa1.gif";
+            window.Items = window.Mapa1;
+            window.lvDataBinding.ItemsSource = window.Items;
+            window.OnLoad();
+            e.Handled = true;
+            this.Close();
+        }
+        private void Mapa2_Selected_click(object sender, MouseButtonEventArgs e)
+        {
+            window.ActiveMap = "mapa2.jpg";
+            window.Items = window.Mapa2;
+            window.lvDataBinding.ItemsSource = window.Items;
             window.OnLoad();
             this.Close();
         }
-
-        private void Beograd_Selected(object sender, RoutedEventArgs e)
+        private void Mapa3_Selected_click(object sender, MouseButtonEventArgs e)
         {
-            window.ActiveMap = "./bg.jpg";
+            window.ActiveMap = "mapa3.jpg";
+            window.Items = window.Mapa3;
+            window.lvDataBinding.ItemsSource = window.Items;
             window.OnLoad();
             this.Close();
         }
-
-        private void Subotica_Selected(object sender, RoutedEventArgs e)
+        private void Mapa4_Selected_click(object sender, MouseButtonEventArgs e)
         {
-            window.ActiveMap = "./sub.jpg";
+            window.ActiveMap = "mapa4.jpg";
+            window.Items = window.Mapa4;
+            window.lvDataBinding.ItemsSource = window.Items;
             window.OnLoad();
             this.Close();
         }

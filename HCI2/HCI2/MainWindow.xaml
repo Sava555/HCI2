@@ -4,8 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI2"
+        xmlns:cmd="clr-namespace:HCI2.Komande"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.CommandBindings>
+        <CommandBinding Command="cmd:RoutedCommands.NoviLokal" Executed="NoviLokal"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.NoviTipLokal" Executed="NoviTipLokal"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.PromenaTipLokal" Executed="PromenaTipLokal"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.NovaEtiketa" Executed="NovaEtiketa"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.PromenaEtiketa" Executed="PromenaEtiketa"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.Mape" Executed="Mape"></CommandBinding>
+    </Window.CommandBindings>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -21,23 +30,32 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
-
-        <Button FontSize="15" Width="100" Height="45" Grid.Row="1" Grid.Column="1" Click="Button_Click_1">Mape</Button>
-        <Button FontSize="15" Width="100" Height="45" Grid.Row="1" Grid.Column="2" Click="Button_Click">Novi Lokal</Button>
-
-        <ListView Grid.Row="4" Grid.Column="2" Name="lvDataBinding">
-            <ListView.ItemTemplate>
-                <DataTemplate>
+        <Menu Grid.Row="0" Grid.ColumnSpan="4">
+            <MenuItem Header="_Novi Lokal" Command="cmd:RoutedCommands.NoviLokal"></MenuItem>
+            <MenuItem Header="_Tip Lokala">
+                <MenuItem Header="_Novi Tip Lokal" Command="cmd:RoutedCommands.NoviTipLokal"></MenuItem>
+                <MenuItem Header="_Promena Tip Lokal" Command="cmd:RoutedCommands.PromenaTipLokal"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Etikete">
+                <MenuItem Header="_Nova Etiketa" Command="cmd:RoutedCommands.NovaEtiketa"></MenuItem>
+                <MenuItem Header="_Promena Etiketa" Command="cmd:RoutedCommands.PromenaEtiketa"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Mape" Command="cmd:RoutedCommands.Mape" ></MenuItem>
+        </Menu>
+        
+        <ListView Grid.Row="4" Grid.Column="2" ItemsSource="{Binding Items}" Name="lvDataBinding" PreviewMouseLeftButtonDown="LvDataBinding_PreviewMouseLeftButtonDown" MouseMove="LvDataBinding_MouseMove" MouseDoubleClick="ShowDetails">
+            <ListView.ItemTemplate >
+                <DataTemplate >
                     <StackPanel Orientation="Horizontal">
-                        <Image Height="16" Width="16" Source="{Binding Slicica}" />
-                        <TextBlock Text="{Binding Naziv}"/>
+                        <Image Height="50" Width="50"  Source="{Binding Slicica}" />
+                        <TextBlock Text="{Binding Naziv}"  TextAlignment="Justify" FontSize="40" Padding="5"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
         <ScrollViewer HorizontalScrollBarVisibility="Auto" Grid.Row="4" Grid.Column="1" Name="MyScrollViewer" CanContentScroll="True">
-            <Image Name="MyImage" HorizontalAlignment="Left" VerticalAlignment="Top" MouseWheel="UIElement_OnMouseWheel" MouseDown="MyImage_OnMouseDown" MouseUp="MyImage_OnMouseUp"/>
+            <Image Name="MyImage" HorizontalAlignment="Left" VerticalAlignment="Top" MouseWheel="UIElement_OnMouseWheel" AllowDrop="True" DragEnter="MyImage_DragEnter" Drop="MyImage_Drop" PreviewMouseLeftButtonDown="MyImage_PreviewMouseLeftButtonDown" MouseMove="MyImage_MouseMove" MouseUp="MyImage_MouseUp" />
         </ScrollViewer>
     </Grid>
 </Window>

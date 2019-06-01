@@ -1,0 +1,47 @@
+﻿<Window x:Class="HCI2.dodajEtikete"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HCI2"
+        mc:Ignorable="d"
+        Title="dodajEtikete" Height="450" Width="507.732">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="1" Grid.Row="1">Nepostavljene Etikete:</Label>
+        <ComboBox x:Name="etikete" ItemsSource="{Binding Path=NeodabraneEtikete}" DropDownClosed="OdaberiEtiketu" Grid.Column="2" Grid.Row="1"></ComboBox>
+
+        <ListBox x:Name="Odabrane" ItemsSource="{Binding OdabraneEtikete}"  ScrollViewer.VerticalScrollBarVisibility="Visible" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Margin="20">
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="{x:Type local:Etiketa}">
+                    <Grid Width="385" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="40"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25"/>
+                        </Grid.RowDefinitions>
+                        <Canvas Background="{Binding Boja}" Grid.Row="1" Grid.Column="0" ></Canvas>
+                        <Label Content="{Binding Opis}" Grid.Row="1" Grid.Column="1" ></Label>
+                        <Button Grid.Row="1" Grid.Column="3" Click="Otkloni">X</Button>
+                        
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Window>

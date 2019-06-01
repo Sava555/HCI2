@@ -8,9 +8,10 @@
         Title="OdabirMape" Height="300" Width="400">
     <Grid>
         <ListView Margin="10">
-            <ListViewItem Selected="NoviSad_Selected">Mapa Novi Sad</ListViewItem>
-            <ListViewItem Selected="Subotica_Selected">Mapa Subotica</ListViewItem>
-            <ListViewItem Selected="Beograd_Selected">Mapa Beograd</ListViewItem>
+            <ListViewItem PreviewKeyDown="Mapa1_Selected" MouseDoubleClick="Mapa1_Selected_click" Focusable="True">Mapa1</ListViewItem>
+            <ListViewItem PreviewKeyDown="Mapa2_Selected" MouseDoubleClick="Mapa2_Selected_click" Focusable="True">Mapa2</ListViewItem>
+            <ListViewItem PreviewKeyDown="Mapa3_Selected" MouseDoubleClick="Mapa3_Selected_click" Focusable="True">Mapa3</ListViewItem>
+            <ListViewItem PreviewKeyDown="Mapa4_Selected" MouseDoubleClick="Mapa4_Selected_click" Focusable="True">Mapa4</ListViewItem>
         </ListView>
     </Grid>
     
