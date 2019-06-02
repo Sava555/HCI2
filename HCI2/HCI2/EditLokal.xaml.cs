@@ -94,7 +94,16 @@ namespace HCI2
             {
                 string sourcePath = dlg.FileName;
                 string targetPath = "../../Data/" + this.Window.Items[this.itemIndex].Id + "." + sourcePath.Split('.')[1];
-                System.IO.File.Copy(sourcePath, targetPath,true);
+                try
+                {
+                    System.IO.File.Copy(sourcePath, targetPath, true);
+                }
+                catch
+                {
+                    System.Media.SystemSounds.Beep.Play();
+                    MessageBox.Show("Nije BIlo moguce ucitati sliku");
+                    return;
+                }
                 IconPath = targetPath;
             }
         }

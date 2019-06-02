@@ -45,6 +45,7 @@ namespace HCI2
             Mapa2 = (ObservableCollection<Lokal>)FileIO.IscitajLokal("mapa2.bin");
             Mapa3 = (ObservableCollection<Lokal>)FileIO.IscitajLokal("mapa3.bin");
             Mapa4 = (ObservableCollection<Lokal>)FileIO.IscitajLokal("mapa4.bin");
+            izjednaciLokale();
             Items = Mapa1;
             if (Items == null)
             {
@@ -58,6 +59,67 @@ namespace HCI2
             lvDataBinding.ItemsSource = Items;
             OnLoad();
 
+        }
+
+        private void izjednaciLokale()
+        {
+            foreach (Lokal l in Mapa1)
+            {
+                for(int i = 0; i < Mapa2.Count; i++)
+                {
+                    Lokal l2 = Mapa2[i];
+                    if (l2.Id.Equals(l.Id))
+                    {
+                        Mapa2[i] = l;
+                    }
+                }
+                for (int i = 0; i < Mapa3.Count; i++)
+                {
+                    Lokal l2 = Mapa3[i];
+                    if (l2.Id.Equals(l.Id))
+                    {
+                        Mapa3[i] = l;
+                    }
+                }
+                for (int i = 0; i < Mapa4.Count; i++)
+                {
+                    Lokal l2 = Mapa4[i];
+                    if (l2.Id.Equals(l.Id))
+                    {
+                        Mapa4[i] = l;
+                    }
+                }
+            }
+            foreach (Lokal l in Mapa2)
+            {
+                for (int i = 0; i < Mapa3.Count; i++)
+                {
+                    Lokal l2 = Mapa3[i];
+                    if (l2.Id.Equals(l.Id))
+                    {
+                        Mapa3[i] = l;
+                    }
+                }
+                for (int i = 0; i < Mapa4.Count; i++)
+                {
+                    Lokal l2 = Mapa4[i];
+                    if (l2.Id.Equals(l.Id))
+                    {
+                        Mapa4[i] = l;
+                    }
+                }
+            }
+            foreach (Lokal l in Mapa3)
+            {
+                for (int i = 0; i < Mapa4.Count; i++)
+                {
+                    Lokal l2 = Mapa4[i];
+                    if (l2.Id.Equals(l.Id))
+                    {
+                        Mapa4[i] = l;
+                    }
+                }
+            }
         }
 
         private void SacuvajLokale()
@@ -323,6 +385,10 @@ namespace HCI2
             {
                 e.Effects = DragDropEffects.None;
             }
+            if (!e.Data.GetDataPresent("lokalTransfer") || sender == e.Source)
+            {
+                e.Effects = DragDropEffects.None;
+            }
         }
 
         private void MyImage_Drop(object sender, DragEventArgs e)
@@ -330,10 +396,31 @@ namespace HCI2
             Point myPoint = e.GetPosition(sender as Image);
             int x = Convert.ToInt32(myPoint.X);
             int y = Convert.ToInt32(myPoint.Y);
-            if (e.Data.GetDataPresent("lokal"))
+            bool f = false;
+            if (e.Data.GetDataPresent("lokalTransfer"))
+            {
+                f = true;
+            }
+            if (e.Data.GetDataPresent("lokal") || f)
             {
                 bool flag = false;
-                Lokal lokal = e.Data.GetData("lokal") as Lokal;
+                Lokal lokal = null;
+                if (f)
+                {
+                    lokal = e.Data.GetData("lokalTransfer") as Lokal;
+                    if (!this.Items.Contains(lokal))
+                    {
+                        this.Items.Insert(0, lokal);
+                    }
+                    else
+                    {
+                        lokal = this.Items[this.Items.IndexOf(lokal)];
+                    }
+                }
+                else
+                {
+                    lokal = e.Data.GetData("lokal") as Lokal;
+                }
                 foreach (Lokal lo in this.Items)
                 {
                     if(lo.Id == lokal.Id)
@@ -429,6 +516,12 @@ namespace HCI2
         {
             EditEtiketa ee = new EditEtiketa(this);
             ee.ShowDialog();
+        }
+
+        private void PrebaciPodatke(object sender, ExecutedRoutedEventArgs e)
+        {
+            TransferLokala tl = new TransferLokala(this);
+            tl.Show();
         }
     }
 }

@@ -110,5 +110,15 @@ namespace HCI2
             }
         }
 
+        public override bool Equals(object obj)
+        {
+            return obj is Lokal lokal &&
+                   Id == lokal.Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return 2108858624 + EqualityComparer<string>.Default.GetHashCode(Id);
+        }
     }
 }

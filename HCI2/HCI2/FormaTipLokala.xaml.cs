@@ -48,7 +48,27 @@ namespace HCI2
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            TipLokala tLokala = new TipLokala(Id.Text, Naziv.Text, Opis.Text, IconPath.Equals("") ? "../../Data/icon.png" : IconPath);
+            foreach(TipLokala tl in this.Window.TipoviLokala)
+            {
+                if (tl.Id.Equals(Id.Text))
+                {
+                    System.Media.SystemSounds.Beep.Play();
+                    MessageBox.Show("Uneseni Id je vec u upotrebi");
+                    Id.Focus();
+                    return;
+                }
+            }
+
+            TipLokala tLokala;
+            try
+            {
+                tLokala = new TipLokala(Id.Text, Naziv.Text, Opis.Text, IconPath.Equals("") ? "../../Data/icon.png" : IconPath);
+            }catch
+            {
+                System.Media.SystemSounds.Beep.Play();
+                MessageBox.Show("Doslo je do greske pri unosu");
+                return;
+            }
             this.Window.TipoviLokala.Add(tLokala);
             FileIO.UpisiLokal("tipoviLokala.bin", this.Window.TipoviLokala);
             this.Close();

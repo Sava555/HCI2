@@ -90,6 +90,9 @@
       <DependentUpon>FormaTipLokala.xaml</DependentUpon>
     </Compile>
     <Compile Include="TipLokala.cs" />
+    <Compile Include="TransferLokala.xaml.cs">
+      <DependentUpon>TransferLokala.xaml</DependentUpon>
+    </Compile>
     <Page Include="DodajEtikete.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -143,6 +146,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="TransferLokala.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="OdabirMape.xaml.cs">
@@ -167,6 +174,7 @@
     </EmbeddedResource>
     <None Include="Data\etikete.bin" />
     <None Include="Data\mapa1.bin" />
+    <None Include="Data\mapa2.bin" />
     <None Include="Data\tipoviLokala.bin" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -177,7 +185,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Data\2.jpg" />
+    <Resource Include="Data\22.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Data\icon.png" />
   </ItemGroup>

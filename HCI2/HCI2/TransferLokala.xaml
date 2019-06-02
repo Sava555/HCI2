@@ -1,0 +1,38 @@
+﻿<Window x:Class="HCI2.TransferLokala"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HCI2"
+        mc:Ignorable="d"
+        Title="TransferLokala" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <ListView Grid.Row="1" Grid.Column="2" ItemsSource="{Binding Items}" Name="lvDataBinding" PreviewMouseLeftButtonDown="LvDataBinding_PreviewMouseLeftButtonDown" MouseMove="LvDataBinding_MouseMove" MouseDoubleClick="ShowDetails">
+            <ListView.ItemTemplate >
+                <DataTemplate >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="50" Width="50"  Source="{Binding Slicica}" />
+                        <TextBlock Text="{Binding Naziv}"  TextAlignment="Justify" FontSize="40" Padding="5"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView Margin="10" Grid.Row="1" Grid.Column="1">
+            <ListViewItem Selected="Mapa1_Selected" MouseUp="Mapa1_Selected_click" Focusable="True">Mapa1</ListViewItem>
+            <ListViewItem Selected="Mapa2_Selected" MouseUp="Mapa2_Selected_click" Focusable="True">Mapa2</ListViewItem>
+            <ListViewItem Selected="Mapa3_Selected" MouseUp="Mapa3_Selected_click" Focusable="True">Mapa3</ListViewItem>
+            <ListViewItem Selected="Mapa4_Selected" MouseUp="Mapa4_Selected_click" Focusable="True">Mapa4</ListViewItem>
+        </ListView>
+    </Grid>
+</Window>

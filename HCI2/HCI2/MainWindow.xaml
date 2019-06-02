@@ -13,7 +13,8 @@
         <CommandBinding Command="cmd:RoutedCommands.PromenaTipLokal" Executed="PromenaTipLokal"></CommandBinding>
         <CommandBinding Command="cmd:RoutedCommands.NovaEtiketa" Executed="NovaEtiketa"></CommandBinding>
         <CommandBinding Command="cmd:RoutedCommands.PromenaEtiketa" Executed="PromenaEtiketa"></CommandBinding>
-        <CommandBinding Command="cmd:RoutedCommands.Mape" Executed="Mape"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.PromeniMapu" Executed="Mape"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.PrebaciPodatke" Executed="PrebaciPodatke"></CommandBinding>
     </Window.CommandBindings>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -40,7 +41,10 @@
                 <MenuItem Header="_Nova Etiketa" Command="cmd:RoutedCommands.NovaEtiketa"></MenuItem>
                 <MenuItem Header="_Promena Etiketa" Command="cmd:RoutedCommands.PromenaEtiketa"></MenuItem>
             </MenuItem>
-            <MenuItem Header="_Mape" Command="cmd:RoutedCommands.Mape" ></MenuItem>
+            <MenuItem Header="_Mape"  >
+                <MenuItem Header="_Promeni Mapu" Command="cmd:RoutedCommands.PromeniMapu" ></MenuItem>
+                <MenuItem Header="_Prebaci Podatke" Command="cmd:RoutedCommands.PrebaciPodatke" ></MenuItem>
+            </MenuItem>
         </Menu>
         
         <ListView Grid.Row="4" Grid.Column="2" ItemsSource="{Binding Items}" Name="lvDataBinding" PreviewMouseLeftButtonDown="LvDataBinding_PreviewMouseLeftButtonDown" MouseMove="LvDataBinding_MouseMove" MouseDoubleClick="ShowDetails">

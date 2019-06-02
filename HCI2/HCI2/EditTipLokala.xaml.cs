@@ -40,6 +40,7 @@ namespace HCI2
             this.Window = window;
             this.TipoviLokala = window.TipoviLokala;
             this.Id.ItemsSource = this.TipoviLokala;
+            this.IconPath = "";
         }
 
         private void btnOpenFile_Click(object sender, RoutedEventArgs e)

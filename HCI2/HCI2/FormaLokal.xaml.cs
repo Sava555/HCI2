@@ -48,6 +48,7 @@ namespace HCI2
 
         private void btnOpenFile_Click(object sender, RoutedEventArgs e)
         {
+            
             OpenFileDialog dlg = new OpenFileDialog();
 
             dlg.DefaultExt = ".png";
@@ -66,6 +67,47 @@ namespace HCI2
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            foreach (Lokal lok in Window.Mapa1)
+            {
+                if (lok.Id.Equals(Id.Text))
+                {
+
+                    System.Media.SystemSounds.Beep.Play();
+                    MessageBox.Show("Uneseni id je vec u upotrebi na Mapi1");
+                    Id.Focus();
+                    return;
+                }
+            }
+            foreach (Lokal lok in Window.Mapa2)
+            {
+                if (lok.Id.Equals(Id.Text))
+                {
+                    System.Media.SystemSounds.Beep.Play();
+                    MessageBox.Show("Uneseni id je vec u upotrebi na Mapi2");
+                    Id.Focus();
+                    return;
+                }
+            }
+            foreach (Lokal lok in Window.Mapa3)
+            {
+                if (lok.Id.Equals(Id.Text))
+                {
+                    System.Media.SystemSounds.Beep.Play();
+                    MessageBox.Show("Uneseni id je vec u upotrebi na Mapi3");
+                    Id.Focus();
+                    return;
+                }
+            }
+            foreach (Lokal lok in Window.Mapa4)
+            {
+                if (lok.Id.Equals(Id.Text))
+                {
+                    System.Media.SystemSounds.Beep.Play();
+                    MessageBox.Show("Uneseni id je vec u upotrebi na Mapi4");
+                    Id.Focus();
+                    return;
+                }
+            }
             SluzenjeAlkohola sluzenje = SluzenjeAlkohola.NE_SLUZI;
             switch(StatusSluzenjaAlkohola.Text)
             {
@@ -97,7 +139,17 @@ namespace HCI2
                     break;
             }
             TipLokala tLokala = Tip.SelectedItem as TipLokala;
-            Lokal l = new Lokal(Id.Text, Naziv.Text, tLokala, sluzenje, IconPath.Equals("") ? "" : IconPath, DostupnoHendikepiranim.IsChecked ?? false, DozvoljenoPusenje.IsChecked ?? false, PrimaRezervacije.IsChecked ?? false, kat, Int32.Parse(Kapacitet.Text), DatumOtvaranja.SelectedDate.GetValueOrDefault(DateTime.Now));
+            Lokal l = null;
+            try
+            {
+                l = new Lokal(Id.Text, Naziv.Text, tLokala, sluzenje, IconPath.Equals("") ? "" : IconPath, DostupnoHendikepiranim.IsChecked ?? false, DozvoljenoPusenje.IsChecked ?? false, PrimaRezervacije.IsChecked ?? false, kat, Int32.Parse(Kapacitet.Text), DatumOtvaranja.SelectedDate.GetValueOrDefault(DateTime.Now));
+            }
+            catch
+            {
+                System.Media.SystemSounds.Beep.Play();
+                MessageBox.Show("Neke vrednosti nisu bile dobro unete");
+                return;
+            }
             l.Etikete = this.OdabraneEtikete;
             l.UcitajIkonicu();
             this.Items.Insert(0, l);

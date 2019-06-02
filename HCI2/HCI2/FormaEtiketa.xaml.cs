@@ -28,7 +28,25 @@ namespace HCI2
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Etiketa et = new Etiketa(Id.Text, Opis.Text, ClrPcker.SelectedColor);
+            foreach(Etiketa ee in Window.Etikete)
+            {
+                if (ee.Id.Equals(Id.Text))
+                {
+                    System.Media.SystemSounds.Beep.Play();
+                    MessageBox.Show("Uneseni Id je vec odabran");
+                    return;
+                }
+            }
+            Etiketa et;
+            try
+            {
+                et = new Etiketa(Id.Text, Opis.Text, ClrPcker.SelectedColor);
+            }catch
+            {
+                System.Media.SystemSounds.Beep.Play();
+                MessageBox.Show("Doslo je do greske pri unosu");
+                return;
+            }
             Window.Etikete.Add(et);
             FileIO.UpisiLokal("etikete.bin", Window.Etikete);
             this.Close();

@@ -58,13 +58,22 @@ namespace HCI2.Komande
             }
             );
 
-        public static RoutedUICommand Mape = new RoutedUICommand(
+        public static RoutedUICommand PromeniMapu = new RoutedUICommand(
             "Otvara prozor za odabir mape",
-            "NoviLokal",
+            "PromeniMapu",
             typeof(RoutedCommand),
             new InputGestureCollection()
             {
                 new KeyGesture(Key.M,ModifierKeys.Control)
+            }
+            );
+        public static RoutedUICommand PrebaciPodatke = new RoutedUICommand(
+            "Otvara prozor za prebacivanje podatak sa drugih mapa",
+            "PrebaciPodatke",
+            typeof(RoutedCommand),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.M, ModifierKeys.Control | ModifierKeys.Shift)
             }
             );
     }
