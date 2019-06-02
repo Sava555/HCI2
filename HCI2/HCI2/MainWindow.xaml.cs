@@ -313,13 +313,13 @@ namespace HCI2
             {
                 if (lokal.Filter)
                 {
-                    map.FillRectangle(lokal.XPoint - picSize - 4, lokal.YPoint - picSize - 4, lokal.XPoint + picSize + 4, lokal.YPoint + picSize + 4, Colors.DarkOrange);
+                    map.FillRectangle(lokal.XPoint[this.ActiveMap] - picSize - 4, lokal.YPoint[this.ActiveMap] - picSize - 4, lokal.XPoint[this.ActiveMap] + picSize + 4, lokal.YPoint[this.ActiveMap] + picSize + 4, Colors.DarkOrange);
                 }
-                if (!(lokal.XPoint == -1 || lokal.YPoint == -1))
+                if (!(!lokal.XPoint.ContainsKey(this.ActiveMap) || !lokal.YPoint.ContainsKey(this.ActiveMap)))
                 {
                     var im = lokal.Slicica;
                     im = im.Resize(picSize * 2, picSize * 2, WriteableBitmapExtensions.Interpolation.Bilinear);
-                    this.place_Icon(ref map, lokal.XPoint - picSize , lokal.YPoint - picSize, ref im);
+                    this.place_Icon(ref map, lokal.XPoint[this.ActiveMap] - picSize , lokal.YPoint[this.ActiveMap] - picSize, ref im);
                 }                
             }
             MyImage.Source = map;
@@ -409,7 +409,7 @@ namespace HCI2
                 {
                     lokal = e.Data.GetData("lokalTransfer") as Lokal;
                     if (!this.Items.Contains(lokal))
-                    {
+                    { 
                         this.Items.Insert(0, lokal);
                     }
                     else
@@ -427,7 +427,7 @@ namespace HCI2
                     {
                         continue;
                     }
-                    if (check_Colision(x, y, lo.XPoint, lo.YPoint))
+                    if (check_Colision(x, y, lo.XPoint[this.ActiveMap], lo.YPoint[this.ActiveMap]))
                     {
                         flag = true;
                         break;
@@ -435,8 +435,8 @@ namespace HCI2
                 }
                 if (!flag)
                 {
-                    lokal.XPoint = x;
-                    lokal.YPoint = y;
+                    lokal.XPoint[this.ActiveMap] = x;
+                    lokal.YPoint[this.ActiveMap] = y;
                     FileIO.UpisiLokal(ActiveMap.Split('.')[0] + ".bin", this.Items);
                     this.renderMap();
                 }
@@ -457,9 +457,9 @@ namespace HCI2
             {
                 foreach(Lokal lokal in this.Items)
                 {
-                    if(lokal.XPoint - picSize < startPoint.X && lokal.YPoint + picSize > startPoint.Y)
+                    if(lokal.XPoint[this.ActiveMap] - picSize < startPoint.X && lokal.YPoint[this.ActiveMap] + picSize > startPoint.Y)
                     {
-                        if(lokal.XPoint + picSize > startPoint.X && lokal.YPoint - picSize < startPoint.Y)
+                        if(lokal.XPoint[this.ActiveMap] + picSize > startPoint.X && lokal.YPoint[this.ActiveMap] - picSize < startPoint.Y)
                         {
                             DataObject dragData = new DataObject("lokal", lokal);
                             DragDrop.DoDragDrop((DependencyObject)e.OriginalSource, dragData, DragDropEffects.Move);
@@ -482,9 +482,9 @@ namespace HCI2
             for (int i = 0; i < this.Items.Count; i++)
             {
                 Lokal lokal = this.Items[i];
-                if (lokal.XPoint - picSize < startPoint.X && lokal.YPoint + picSize > startPoint.Y)
+                if (lokal.XPoint[this.ActiveMap] - picSize < startPoint.X && lokal.YPoint[this.ActiveMap] + picSize > startPoint.Y)
                 {
-                    if (lokal.XPoint + picSize > startPoint.X && lokal.YPoint - picSize < startPoint.Y)
+                    if (lokal.XPoint[this.ActiveMap] + picSize > startPoint.X && lokal.YPoint[this.ActiveMap] - picSize < startPoint.Y)
                     {
                         EditLokal elokal = new EditLokal(this, i);
                         elokal.Show();

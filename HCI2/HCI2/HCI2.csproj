@@ -203,5 +203,8 @@
     <Resource Include="Data\tip1.jpg" />
     <Resource Include="Data\tipHCI2.TipLokala.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\1.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

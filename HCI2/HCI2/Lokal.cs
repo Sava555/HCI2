@@ -69,8 +69,8 @@ namespace HCI2
             }
         }
 
-        public int XPoint { get; set; }
-        public int YPoint { get; set; }
+        public Dictionary<string,int> XPoint { get; set; }
+        public Dictionary<string, int> YPoint{ get; set; }
         public bool Filter { get; set; }
 
         public ObservableCollection<Etiketa> Etikete { get; set; }
@@ -88,8 +88,8 @@ namespace HCI2
             this.KategorijaCene = KategorijaCene;
             this.Kapacitet = Kapacitet;
             this.DatumOtvaranja = DatumOtvaranja;
-            this.XPoint = -1;
-            this.YPoint = -1;
+            this.XPoint = new Dictionary<string, int>();
+            this.YPoint = new Dictionary<string, int>();
             this.Filter = false;
         }
 
