@@ -352,7 +352,6 @@ namespace HCI2
         private void HelpBinding_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             IInputElement focusedControl = Mouse.DirectlyOver;
-            Console.WriteLine(focusedControl);
             if (focusedControl is DependencyObject)
             {
                 string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);

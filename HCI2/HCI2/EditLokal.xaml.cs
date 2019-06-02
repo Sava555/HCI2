@@ -88,6 +88,21 @@ namespace HCI2
             DatumOtvaranja.SelectedDate = item.DatumOtvaranja;
         }
 
+        
+        private void Button_Click2(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni da zelite da obrisete ovaj lokal?", "Provera brisanja", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                this.Window.Items.RemoveAt(this.itemIndex);
+                FileIO.UpisiLokal(this.ActiveMap.Split('.')[0] + ".bin", this.Window.Items);
+                this.Window.renderMap();
+                this.Window.lvDataBinding.ItemsSource = this.Window.Items;
+                this.Close();
+            }
+        }
+
+
         private void btnOpenFile_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();

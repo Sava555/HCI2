@@ -214,5 +214,22 @@
   <ItemGroup>
     <Resource Include="Data\1.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\Help\dodajetikete.htm" />
+    <Content Include="Data\Help\editetiketa.htm" />
+    <Content Include="Data\Help\editlokala.htm" />
+    <Content Include="Data\Help\edittipa.htm" />
+    <Content Include="Data\Help\error.htm" />
+    <Content Include="Data\Help\index.htm" />
+    <Resource Include="Data\Help\item.PNG" />
+    <Resource Include="Data\Help\listalabela.PNG" />
+    <Content Include="Data\Help\lokal.htm" />
+    <Content Include="Data\Help\mapa.htm" />
+    <Content Include="Data\Help\novaetiketa.htm" />
+    <Content Include="Data\Help\novilokal.htm" />
+    <Content Include="Data\Help\novitip.htm" />
+    <Content Include="Data\Help\odabirmape.htm" />
+    <Content Include="Data\Help\transferlokala.htm" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

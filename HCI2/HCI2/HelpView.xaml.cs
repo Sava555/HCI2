@@ -24,13 +24,14 @@ namespace HCI2
         {
             InitializeComponent();
 
-            string curDir = Directory.GetCurrentDirectory();
-            string path = String.Format("{0}/Help/{1}.htm", curDir, key);
+            string curDir = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName;
+            Console.WriteLine(curDir);
+            string path = String.Format("{0}/Data/Help/{1}.htm", curDir, key);
             if (!File.Exists(path))
             {
                 key = "error";
             }
-            Uri u = new Uri(String.Format("file:///{0}/Help/{1}.htm", curDir, key));
+            Uri u = new Uri(String.Format("file:///{0}/Data/Help/{1}.htm", curDir, key));
             wbHelp.Navigate(u);
         }
 
