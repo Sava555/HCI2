@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:HCI2"
         mc:Ignorable="d"
         Title="OdabirMape" Height="300" Width="400">
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="HelpBinding_Executed"></CommandBinding>
+    </Window.CommandBindings>
     <Grid>
         <ListView Margin="10">
             <ListViewItem PreviewKeyDown="Mapa1_Selected" MouseDoubleClick="Mapa1_Selected_click" Focusable="True">Mapa1</ListViewItem>

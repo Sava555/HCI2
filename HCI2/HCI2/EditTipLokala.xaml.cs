@@ -43,6 +43,12 @@ namespace HCI2
             this.IconPath = "";
         }
 
+        private void HelpBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            string str = "edittipa";
+            HelpProvider.ShowHelp(str);
+        }
+
         private void btnOpenFile_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();

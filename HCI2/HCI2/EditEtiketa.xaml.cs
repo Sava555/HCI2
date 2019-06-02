@@ -30,6 +30,12 @@ namespace HCI2
             this.Id_Selct.ItemsSource = this.Etikete;
         }
 
+        private void HelpBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            string str = "editetiketa";
+            HelpProvider.ShowHelp(str);
+        }
+
         private void Id_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Etiketa et = Id_Selct.SelectedItem as Etiketa;

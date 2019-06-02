@@ -349,6 +349,17 @@ namespace HCI2
             startPoint = e.GetPosition(null);
         }
 
+        private void HelpBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            IInputElement focusedControl = Mouse.DirectlyOver;
+            Console.WriteLine(focusedControl);
+            if (focusedControl is DependencyObject)
+            {
+                string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+                HelpProvider.ShowHelp(str);
+            }
+        }
+
         private void LvDataBinding_MouseMove(object sender, MouseEventArgs e)
         {
             Point mousePos = e.GetPosition(null);

@@ -26,6 +26,13 @@ namespace HCI2
             this.window = window;
         }
 
+
+        private void HelpBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            string str = "odabirmape";
+            HelpProvider.ShowHelp(str);
+        }
+
         private void Mapa1_Selected(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Return)

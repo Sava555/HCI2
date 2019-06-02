@@ -89,6 +89,10 @@
     <Compile Include="FormaTipLokala.xaml.cs">
       <DependentUpon>FormaTipLokala.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HelpProvider.cs" />
+    <Compile Include="HelpView.xaml.cs">
+      <DependentUpon>HelpView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TipLokala.cs" />
     <Compile Include="TransferLokala.xaml.cs">
       <DependentUpon>TransferLokala.xaml</DependentUpon>
@@ -118,6 +122,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="FormaTipLokala.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HelpView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

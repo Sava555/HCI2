@@ -46,6 +46,12 @@ namespace HCI2
             Tip.SelectedIndex = 0;
         }
 
+        private void HelpBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            string str = "novilokal";
+            HelpProvider.ShowHelp(str);
+        }
+
         private void btnOpenFile_Click(object sender, RoutedEventArgs e)
         {
             

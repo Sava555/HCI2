@@ -26,6 +26,12 @@ namespace HCI2
             this.Window = window;
         }
 
+        private void HelpBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            string str = "novaetiketa";
+            HelpProvider.ShowHelp(str);
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             foreach(Etiketa ee in Window.Etikete)

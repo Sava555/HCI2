@@ -29,6 +29,12 @@ namespace HCI2
             this.Window = window;
         }
 
+        private void HelpBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            string str = "novitip";
+            HelpProvider.ShowHelp(str);
+        }
+
         private void btnOpenFile_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();

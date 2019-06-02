@@ -6,7 +6,10 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:HCI2"
         mc:Ignorable="d"
-        Title="FormaEtiketa" Height="450" Width="448.969">
+        Title="Nova etiketa" Height="250" Width="448.969">
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="HelpBinding_Executed"></CommandBinding>
+    </Window.CommandBindings>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -26,7 +29,7 @@
         <Label Grid.Column="1" Grid.Row="1">Id:</Label>
         <TextBox x:Name="Id" Grid.Column="2" Grid.Row="1" Margin="0,0,0,10" />
 
-        <Label Grid.Column="1" Grid.Row="2">Opis Tipa:</Label>
+        <Label Grid.Column="1" Grid.Row="2">Opis Etikete:</Label>
         <TextBox x:Name="Opis" MaxLength="20" Grid.Column="2" Grid.Row="2" Margin="0,0,0,10" ></TextBox>
 
         <Label Grid.Column="1" Grid.Row="3">Odabir boje:</Label>

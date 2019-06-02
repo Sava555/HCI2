@@ -31,6 +31,12 @@ namespace HCI2
             InitializeComponent();
         }
 
+        private void HelpBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            string str = "editlokala";
+            HelpProvider.ShowHelp(str);
+        }
+
         public EditLokal(MainWindow window, int index)
         {
             Lokal item = window.Items[index];

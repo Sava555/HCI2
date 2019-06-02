@@ -85,6 +85,12 @@ namespace HCI2
             this.Odabrane.ItemsSource = OdabraneEtikete; 
         }
 
+        private void HelpBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            string str = "dodajetikete";
+            HelpProvider.ShowHelp(str);
+        }
+
         private void Otkloni(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;

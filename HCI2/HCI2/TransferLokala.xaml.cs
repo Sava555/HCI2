@@ -44,6 +44,12 @@ namespace HCI2
             
         }
 
+        private void HelpBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            string str = "transferlokala";
+            HelpProvider.ShowHelp(str);
+        }
+
         private void Mapa2_Selected(object sender, EventArgs e)
         {
             if (!window.ActiveMap.Equals("mapa2.jpg"))
