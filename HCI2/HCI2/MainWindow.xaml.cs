@@ -533,5 +533,61 @@ namespace HCI2
             TransferLokala tl = new TransferLokala(this);
             tl.Show();
         }
+
+        private void PretragaLokala(object sender, RoutedEventArgs e)
+        {
+
+            string LokalIzInputa = searchTextBox.Text;
+
+            if (!string.IsNullOrEmpty(LokalIzInputa))
+            {
+                foreach (Lokal lokal in Mapa1)
+                {
+                    if (lokal.Naziv.Contains(LokalIzInputa))
+                    {
+                        lvDataBinding.SelectedItem = lokal;
+                        lokal.Filter = true;
+                        renderMap();
+
+                    }
+                }
+
+                foreach (Lokal lokal in Mapa2)
+                {
+                    if (lokal.Naziv.Contains(LokalIzInputa))
+                    {
+                        lvDataBinding.SelectedItem = lokal;
+                        lokal.Filter = true;
+                        renderMap();
+                    }
+                }
+
+                foreach (Lokal lokal in Mapa3)
+                {
+                    if (lokal.Naziv.Contains(LokalIzInputa))
+                    {
+                        lvDataBinding.SelectedItem = lokal;
+                        lokal.Filter = true;
+                        renderMap();
+                    }
+                }
+
+                foreach (Lokal lokal in Mapa4)
+                {
+                    if (lokal.Naziv.Contains(LokalIzInputa))
+                    {
+                        lvDataBinding.SelectedItem = lokal;
+                        lokal.Filter = true;
+                        renderMap();
+                    }
+                }
+            }
+        }
+
+        private void FilterButton_Click(object sender, RoutedEventArgs e)
+        {
+            FilterLokala filterWindow = new FilterLokala();
+            filterWindow.Show();
+        }
     }
 }
