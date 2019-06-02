@@ -83,6 +83,9 @@
       <DependentUpon>EditTipLokala.xaml</DependentUpon>
     </Compile>
     <Compile Include="Etiketa.cs" />
+    <Compile Include="FilterLokala.xaml.cs">
+      <DependentUpon>FilterLokala.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FormaEtiketa.xaml.cs">
       <DependentUpon>FormaEtiketa.xaml</DependentUpon>
     </Compile>
@@ -110,6 +113,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EditTipLokala.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FilterLokala.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
