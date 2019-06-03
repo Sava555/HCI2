@@ -546,7 +546,6 @@ namespace HCI2
                     if (lokal.Naziv.Contains(LokalIzInputa))
                     {
                         lvDataBinding.SelectedItem = lokal;
-                        lokal.Filter = true;
                         renderMap();
 
                     }
@@ -557,7 +556,7 @@ namespace HCI2
                     if (lokal.Naziv.Contains(LokalIzInputa))
                     {
                         lvDataBinding.SelectedItem = lokal;
-                        lokal.Filter = true;
+                       
                         renderMap();
                     }
                 }
@@ -567,7 +566,7 @@ namespace HCI2
                     if (lokal.Naziv.Contains(LokalIzInputa))
                     {
                         lvDataBinding.SelectedItem = lokal;
-                        lokal.Filter = true;
+                       
                         renderMap();
                     }
                 }
@@ -577,7 +576,7 @@ namespace HCI2
                     if (lokal.Naziv.Contains(LokalIzInputa))
                     {
                         lvDataBinding.SelectedItem = lokal;
-                        lokal.Filter = true;
+                       
                         renderMap();
                     }
                 }
@@ -586,8 +585,29 @@ namespace HCI2
 
         private void FilterButton_Click(object sender, RoutedEventArgs e)
         {
-            FilterLokala filterWindow = new FilterLokala();
+            FilterLokala filterWindow = new FilterLokala(this);
             filterWindow.Show();
+        }
+
+        private void RefreshButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(ActiveMap.Equals("mapa1.jpg"))
+            {
+                lvDataBinding.ItemsSource = Mapa1;
+            }
+            else if (ActiveMap.Equals("mapa2.jpg"))
+            {
+                lvDataBinding.ItemsSource = Mapa2;
+            }
+            else if (ActiveMap.Equals("mapa3.jpg"))
+            {
+                lvDataBinding.ItemsSource = Mapa3;
+            }
+            else
+            {
+                lvDataBinding.ItemsSource = Mapa4;
+            }
+
         }
     }
 }

@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI2"
         mc:Ignorable="d"
-        Title="Filtriranje lokala" FontSize="17" Height="520" Width="440" Name="FilterWindow">
-    <Grid>
+        Title="Filtriranje lokala" FontSize="17" Height="550" Width="440" Name="FilterWindow">
+    <Grid Name="filterGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="144*"/>
@@ -15,35 +15,38 @@
 
         <Label Content="CENE"  FontWeight="Bold" FontSize="17" Margin="0,10,0,0" HorizontalAlignment="Left" Width="66" Height="33" VerticalAlignment="Top" Grid.Column="1"/>
         <Label Content="Niske cene:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" Height="31" Width="96"/>
-        <CheckBox Name="niskeCheck" Grid.Column="1" HorizontalAlignment="Left" Margin="245,52,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" />
+             <CheckBox Name="niskeCheck" Grid.Column="1" HorizontalAlignment="Left" Margin="245,52,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
         <Label Content="Srednje cene:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top" Height="31" Width="117"/>
-        <CheckBox  Name="srednjeCheck" Grid.Column="1" HorizontalAlignment="Left" Margin="245,80,0,0" VerticalAlignment="Top"/>
+              <CheckBox  Name="srednjeCheck" Grid.Column="1" HorizontalAlignment="Left" Margin="245,80,0,0" VerticalAlignment="Top"/>
         <Label Content="Visoke cene:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Height="31" Width="107"/>
-        <CheckBox  Name="visokeCheck" Grid.Column="1" HorizontalAlignment="Left" Margin="245,111,0,0" VerticalAlignment="Top"/>
+             <CheckBox  Name="visokeCheck" Grid.Column="1" HorizontalAlignment="Left" Margin="245,111,0,0" VerticalAlignment="Top" />
         <Label Content="Izuzetno visoke cene:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top" Height="31" Width="167"/>
-        <CheckBox  Name="izuzetnoVisokeCheck" Grid.Column="1" HorizontalAlignment="Left" Margin="245,138,0,0" VerticalAlignment="Top"/>
+          <CheckBox  Name="izuzetnoVisokeCheck" Grid.Column="1" HorizontalAlignment="Left" Margin="245,138,0,0" VerticalAlignment="Top"/>
 
         <Rectangle Fill="#FFF4F4F5" Height="4" Margin="0,168,10,0" Stroke="Black" VerticalAlignment="Top" Grid.Column="1"/>
         <Label Content="SLUZENJE ALKOHOLA"  FontWeight="Bold" Margin="7,177,0,0" Height="33" VerticalAlignment="Top" HorizontalAlignment="Left" Width="188" Grid.Column="1"/>
 
 
         <Label Content="Ne sluzi:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top" Height="31" Width="74"/>
-        <CheckBox  Name="sluziCheck" Grid.Column="1" HorizontalAlignment="Left" Margin="245,216,0,0" VerticalAlignment="Top"/>
+             <CheckBox  Name="nesluziCheck" Grid.Column="1" HorizontalAlignment="Left" Margin="245,216,0,0" VerticalAlignment="Top" />
         <Label Content="Sluzi do 23h:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,241,0,0" VerticalAlignment="Top" Height="31" Width="107"/>
-        <CheckBox Name="sluzi23Check" Grid.Column="1" HorizontalAlignment="Left" Margin="245,247,0,0" VerticalAlignment="Top"/>
+             <CheckBox Name="sluzi23Check" Grid.Column="1" HorizontalAlignment="Left" Margin="245,247,0,0" VerticalAlignment="Top" />
         <Label Content="Sluzi i kasno nocu:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,272,0,0" VerticalAlignment="Top" Height="31" Width="150"/>
-        <CheckBox  Name="sluziKasnoCheck" Grid.Column="1" HorizontalAlignment="Left" Margin="245,277,0,0" VerticalAlignment="Top"/>
+             <CheckBox  Name="sluziKasnoCheck" Grid.Column="1" HorizontalAlignment="Left" Margin="245,277,0,0" VerticalAlignment="Top" />
 
         <Rectangle Fill="#FFF4F4F5" Height="4" Margin="0,304,10,0" Stroke="Black" VerticalAlignment="Top" Grid.Column="1"/>
         <Label Content="OSTALO"  FontWeight="Bold" Margin="0,313,0,0" Height="33" VerticalAlignment="Top" HorizontalAlignment="Left" Width="188" Grid.Column="1"/>
 
-        <Label Content="Dozvoljeno pusenje:" Grid.Column="1" HorizontalAlignment="Left" Margin="7,346,0,0" VerticalAlignment="Top" Height="31" Width="170"/>
-        <CheckBox  Name="pusenjeCheck" Grid.Column="1" HorizontalAlignment="Left" Margin="245,352,0,0" VerticalAlignment="Top"/>
-        <Label Content="Prima rezervacije:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,382,0,0" VerticalAlignment="Top" Height="31" Width="150"/>
-        <CheckBox Name="rezervacijeCheck" Grid.Column="1" HorizontalAlignment="Left" Margin="245,388,0,0" VerticalAlignment="Top"/>
+        <Label Content="Dozvoljeno pusenje:" Grid.Column="1" HorizontalAlignment="Left" Margin="7,338,0,0" VerticalAlignment="Top" Height="31" Width="170"/>
+             <CheckBox  Name="pusenjeCheck" Grid.Column="1" HorizontalAlignment="Left" Margin="245,346,0,0" VerticalAlignment="Top"/>
+        <Label Content="Prima rezervacije:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,374,0,0" VerticalAlignment="Top" Height="31" Width="150"/>
+              <CheckBox Name="rezervacijeCheck" Grid.Column="1" HorizontalAlignment="Left" Margin="245,382,0,0" VerticalAlignment="Top" />
+        <Label Content="Dostupan hendikepiranima:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,405,0,0" VerticalAlignment="Top" Height="31" Width="230"/>
+              <CheckBox x:Name="dosupanCheck" Grid.Column="1" HorizontalAlignment="Left" Margin="245,418,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.437,0.467" />
 
-        <Button Content="Filtriraj" Name="FilterDataButton" Margin="211,430,0,0" Grid.Column="1" Height="37" VerticalAlignment="Top" HorizontalAlignment="Left" Width="90" Click="FilterDataButton_Click"/>
-        <Button Content="Odustani" Name="CancelButton" Margin="324,430,0,0" RenderTransformOrigin="0.477,0.556" Click="CancelButton_Click" Grid.Column="1" HorizontalAlignment="Left" Width="86" Height="37" VerticalAlignment="Top"/>
 
+        <Button Content="Filtriraj" Name="FilterDataButton" Margin="212,463,0,0" Grid.Column="1" Height="37" VerticalAlignment="Top" HorizontalAlignment="Left" Width="90" Click="FilterDataButton_Click"/>
+        <Button Content="Odustani" Name="CancelButton" Margin="324,463,0,0" RenderTransformOrigin="0.477,0.556" Click="CancelButton_Click" Grid.Column="1" HorizontalAlignment="Left" Width="86" Height="37" VerticalAlignment="Top"/>
+       
     </Grid>
 </Window>
