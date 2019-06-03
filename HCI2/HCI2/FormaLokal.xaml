@@ -40,7 +40,7 @@
         <TextBox x:Name="Naziv" Grid.Column="2" Grid.Row="2" Margin="0,0,0,10" />
 
         <Label Grid.Column="1" Grid.Row="3">Tip:</Label>
-        <ComboBox ItemsSource="{Binding TipoviLokala}" x:Name="Tip" Grid.Column="2" Grid.Row="3"  Margin="0,0,0,10">
+        <ComboBox ItemsSource="{Binding TipoviLokala}" FontSize="15" x:Name="Tip" Grid.Column="2" Grid.Row="3"  Margin="0,0,0,10">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -59,7 +59,7 @@
         </ComboBox>
 
         <Label Grid.Column="1" Grid.Row="5">Ikonica</Label>
-        <Button Grid.Column="2" Margin="0 10 0 0" Grid.Row="5" Name="btnOpenFile" Click="btnOpenFile_Click">Izaberi ikonicu</Button>
+        <Button Grid.Column="2" Margin="0 10 0 0" Grid.Row="5" FontSize="15" Name="btnOpenFile" Click="btnOpenFile_Click">Izaberi ikonicu</Button>
 
         <Label Grid.Column="1" Grid.Row="6">Dostupno hendikepiranim</Label>
         <CheckBox x:Name="DostupnoHendikepiranim" Grid.Column="2" Margin="5" Grid.Row="6"></CheckBox>

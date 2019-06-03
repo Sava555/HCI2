@@ -54,6 +54,13 @@ namespace HCI2
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if (Id.Text.Equals("") || Naziv.Text.Equals(""))
+            {
+                MessageBox.Show("Neophodno je popuniti Id i Naziv!");
+                Id.Focus();
+                return;
+            }
+
             foreach(TipLokala tl in this.Window.TipoviLokala)
             {
                 if (tl.Id.Equals(Id.Text))

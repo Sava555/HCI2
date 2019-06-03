@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:HCI2"
         xmlns:cmd="clr-namespace:HCI2.Komande"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1010">
+        Title="Lokali" Height="600" Width="1010">
     <Window.CommandBindings>
         <CommandBinding Command="cmd:RoutedCommands.NoviLokal" Executed="NoviLokal"></CommandBinding>
         <CommandBinding Command="cmd:RoutedCommands.NoviTipLokal" Executed="NoviTipLokal"></CommandBinding>

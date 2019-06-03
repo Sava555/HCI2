@@ -50,8 +50,19 @@ namespace HCI2
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Etiketa et = Id_Selct.SelectedItem as Etiketa;
+            if (et == null)
+            {
+                MessageBox.Show("Neophodno je odabrati postojecu etiketu!");
+                return;
+            }
             et.Opis = Opis.Text;
             et.Boja = ClrPcker.SelectedColor.ToString();
+
+            if (et.Opis.Equals("") || et.Boja.Equals(""))
+            {
+                MessageBox.Show("Neophodno je uneti opis i boju!");
+                return;
+            }
             Window.OsveziEtikete(et);
             FileIO.UpisiLokal("etikete.bin", Window.Etikete);
             this.Close();

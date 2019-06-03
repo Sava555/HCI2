@@ -34,7 +34,13 @@ namespace HCI2
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            foreach(Etiketa ee in Window.Etikete)
+            if (Id.Text.Equals("") || Opis.Text.Equals("") || ClrPcker.SelectedColor.ToString().Equals(""))
+            {
+                MessageBox.Show("Neophodno je popuniti polja!");
+                Id.Focus();
+                return;
+            }
+            foreach (Etiketa ee in Window.Etikete)
             {
                 if (ee.Id.Equals(Id.Text))
                 {
