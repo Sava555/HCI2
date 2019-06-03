@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:HCI2"
         mc:Ignorable="d"
         Title="Filtriranje lokala" FontSize="17" Height="550" Width="440" Name="FilterWindow">
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="HelpBinding_Executed"></CommandBinding>
+    </Window.CommandBindings>
     <Grid Name="filterGrid" TextElement.FontSize="18">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

@@ -45,6 +45,12 @@ namespace HCI2
 
         }
 
+        private void HelpBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            string str = "searchfilter";
+            HelpProvider.ShowHelp(str);
+        }
+
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
