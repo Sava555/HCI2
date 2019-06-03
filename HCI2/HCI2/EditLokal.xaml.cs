@@ -38,7 +38,11 @@ namespace HCI2
         }
 
         public EditLokal(MainWindow window, int index)
-        {
+        {   
+            if(index == -1)
+            {
+                index = 0;
+            }
             Lokal item = window.Items[index];
             this.itemIndex = index;
             this.TipoviLokala = window.TipoviLokala;
@@ -88,7 +92,58 @@ namespace HCI2
             DatumOtvaranja.SelectedDate = item.DatumOtvaranja;
         }
 
-        
+        public EditLokal(MainWindow window,Lokal lo)
+        {
+            InitializeComponent();
+            Izmeni.IsEnabled = false;
+            Obrisi.IsEnabled = false;
+            Lokal item = lo;
+            this.TipoviLokala = window.TipoviLokala;
+            this.ActiveMap = window.ActiveMap;
+            this.Window = window;
+            Tip.ItemsSource = window.TipoviLokala;
+            IconPath = "";
+            foreach (TipLokala it in Tip.Items)
+            {
+                if (it.Equals(item.Tip))
+                {
+                    Tip.SelectedItem = it;
+                    break;
+                }
+            }
+
+            foreach (ComboBoxItem it in StatusSluzenjaAlkohola.Items)
+            {
+                string content = it.Content.ToString();
+                content = content.Replace(' ', '_');
+                content = content.ToUpper();
+                if (content.Equals(item.StatusSluzenjaAlkohola.ToString()))
+                {
+                    it.IsSelected = true;
+                    break;
+                }
+            }
+
+            foreach (ComboBoxItem it in KategorijaCene.Items)
+            {
+                string content = it.Content.ToString();
+                content = content.Replace(' ', '_');
+                content = content.ToUpper();
+                if (content.Equals(item.KategorijaCene.ToString()))
+                {
+                    it.IsSelected = true;
+                    break;
+                }
+            }
+            Id.Text = item.Id;
+            Naziv.Text = item.Naziv;
+            this.Kapacitet.Text = item.Kapacitet.ToString();
+            DostupnoHendikepiranim.IsChecked = item.DostupanHendikepiranim;
+            DozvoljenoPusenje.IsChecked = item.DozvoljenoPusenje;
+            PrimaRezervacije.IsChecked = item.PrimaRezervacije;
+            DatumOtvaranja.SelectedDate = item.DatumOtvaranja;
+        }
+
         private void Button_Click2(object sender, RoutedEventArgs e)
         {
             MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni da zelite da obrisete ovaj lokal?", "Provera brisanja", System.Windows.MessageBoxButton.YesNo);

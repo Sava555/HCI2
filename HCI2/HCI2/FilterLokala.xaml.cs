@@ -53,7 +53,7 @@ namespace HCI2
         private void FilterDataButton_Click(object sender, RoutedEventArgs e)
         {
 
-            if (ActiveMap.Equals("mapa1.jpg"))
+            if (ActiveMap.Equals("mapa1.gif"))
             {
                 //---------------------STATUS CENA LOKALA----------------------//
                 foreach (Lokal l in Mapa1)
@@ -401,6 +401,8 @@ namespace HCI2
             }
 
             window.Items = filtriraniLokali;
+            window.lvDataBinding.ItemsSource = filtriraniLokali;
+            window.renderMap();
             this.Close();
 
         }

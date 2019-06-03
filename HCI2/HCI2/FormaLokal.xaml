@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI2"
         mc:Ignorable="d"
-        Title="Novi Lokal" Height="500" Width="400">
+        Title="Novi Lokal" Height="591.5" Width="406">
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Help" Executed="HelpBinding_Executed"></CommandBinding>
     </Window.CommandBindings>
-    <Grid Margin="10">
+    <Grid Margin="10" TextElement.FontSize="18">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="Auto" />
@@ -51,7 +51,7 @@
         </ComboBox>
 
 
-        <Label Grid.Column="1" Grid.Row="4">Status sluzenja alkohola: </Label>
+        <Label Grid.Column="1" Grid.Row="4">Status sluzenja alkohola:</Label>
         <ComboBox x:Name="StatusSluzenjaAlkohola" Grid.Column="2" Grid.Row="4">
             <ComboBoxItem IsSelected="True">Ne sluzi</ComboBoxItem>
             <ComboBoxItem>Sluzi do 23</ComboBoxItem>
@@ -82,10 +82,10 @@
         <TextBox x:Name="Kapacitet" Grid.Column="2" Grid.Row="10" Margin="0,0,0,10" />
 
         <Label Grid.Column="1" Grid.Row="11">Datum otvaranja:</Label>
-        <DatePicker x:Name="DatumOtvaranja" Grid.Column="2" Grid.Row="11" Height="25" Width="115" />
+        <DatePicker x:Name="DatumOtvaranja" Grid.Column="2" Grid.Row="11" TextElement.FontSize="14" Height="25" Width="115" />
 
         <Label Grid.Column="1" Grid.Row="12">Etikete:</Label>
-        <Button Grid.Column="2" Grid.Row="12" Width="80" Height="40" Click="DodajEtikete">Dodaj Etiketu</Button>
+        <Button Grid.Column="2" Grid.Row="12" Width="Auto" Height="40" Click="DodajEtikete">Dodaj Etiketu</Button>
 
         <Button Grid.Column="2" Grid.Row="13" Width="100" Height="40" Click="Button_Click">Dodaj</Button>
     </Grid>

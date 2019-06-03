@@ -31,7 +31,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ListView Margin="10" Grid.Row="1" Grid.Column="1">
+        <ListView Margin="10" Grid.Row="1" Grid.Column="1" TextElement.FontSize="18">
             <ListViewItem Selected="Mapa1_Selected" MouseUp="Mapa1_Selected_click" Focusable="True">Mapa1</ListViewItem>
             <ListViewItem Selected="Mapa2_Selected" MouseUp="Mapa2_Selected_click" Focusable="True">Mapa2</ListViewItem>
             <ListViewItem Selected="Mapa3_Selected" MouseUp="Mapa3_Selected_click" Focusable="True">Mapa3</ListViewItem>

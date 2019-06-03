@@ -194,7 +194,7 @@ namespace HCI2
         private void ShowDetails(object sender, MouseButtonEventArgs e)
         {
             ListView v = sender as ListView;
-            EditLokal elokal = new EditLokal(this.window, v.SelectedIndex);
+            EditLokal elokal = new EditLokal(this.window, v.SelectedItem as Lokal);
             elokal.Show();
         }
     }

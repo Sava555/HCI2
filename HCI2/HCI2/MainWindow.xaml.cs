@@ -586,28 +586,56 @@ namespace HCI2
         private void FilterButton_Click(object sender, RoutedEventArgs e)
         {
             FilterLokala filterWindow = new FilterLokala(this);
-            filterWindow.Show();
+            filterWindow.ShowDialog();
         }
 
         private void RefreshButton_Click(object sender, RoutedEventArgs e)
         {
-            if(ActiveMap.Equals("mapa1.jpg"))
+            lvDataBinding.SelectedItem = null;
+            searchTextBox.Text = "Pretraga";
+            if (ActiveMap.Equals("mapa1.gif"))
             {
+                this.Items = Mapa1;
                 lvDataBinding.ItemsSource = Mapa1;
             }
             else if (ActiveMap.Equals("mapa2.jpg"))
             {
+                this.Items = Mapa2;
                 lvDataBinding.ItemsSource = Mapa2;
             }
             else if (ActiveMap.Equals("mapa3.jpg"))
             {
+
+                this.Items = Mapa3;
                 lvDataBinding.ItemsSource = Mapa3;
             }
             else
             {
+                this.Items = Mapa4;
                 lvDataBinding.ItemsSource = Mapa4;
             }
+            renderMap();
+        }
 
+        private void FocusSerch(object sender, EventArgs e)
+        {
+            searchTextBox.Focus();
+        }
+
+        private void SearchTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (searchTextBox.Text.Equals("Pretraga"))
+            {
+                searchTextBox.Text = "";
+            }
+        }
+
+        private void SearchTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (searchTextBox.Text.Equals(""))
+            {
+                searchTextBox.Text = "Pretraga";
+            }
         }
     }
 }

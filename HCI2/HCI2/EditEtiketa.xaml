@@ -10,7 +10,7 @@
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Help" Executed="HelpBinding_Executed"></CommandBinding>
     </Window.CommandBindings>
-    <Grid>
+    <Grid TextElement.FontSize="18">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="Auto" />

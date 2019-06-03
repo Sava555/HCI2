@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:HCI2"
         mc:Ignorable="d"
         Title="Filtriranje lokala" FontSize="17" Height="550" Width="440" Name="FilterWindow">
-    <Grid Name="filterGrid">
+    <Grid Name="filterGrid" TextElement.FontSize="18">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="144*"/>

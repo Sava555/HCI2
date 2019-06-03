@@ -187,6 +187,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Data\mapa1.bin" />
     <None Include="Data\tipoviLokala.bin" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -219,6 +220,7 @@
     <Resource Include="Data\1.gif" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Data\1.png" />
     <Content Include="Data\Help\dodajetikete.htm" />
     <Content Include="Data\Help\editetiketa.htm" />
     <Content Include="Data\Help\editlokala.htm" />

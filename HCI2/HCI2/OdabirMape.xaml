@@ -9,8 +9,8 @@
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Help" Executed="HelpBinding_Executed"></CommandBinding>
     </Window.CommandBindings>
-    <Grid>
-        <ListView Margin="10">
+    <Grid TextElement.FontSize="18">
+        <ListView Margin="10" >
             <ListViewItem PreviewKeyDown="Mapa1_Selected" MouseDoubleClick="Mapa1_Selected_click" Focusable="True">Mapa1</ListViewItem>
             <ListViewItem PreviewKeyDown="Mapa2_Selected" MouseDoubleClick="Mapa2_Selected_click" Focusable="True">Mapa2</ListViewItem>
             <ListViewItem PreviewKeyDown="Mapa3_Selected" MouseDoubleClick="Mapa3_Selected_click" Focusable="True">Mapa3</ListViewItem>

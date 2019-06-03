@@ -76,5 +76,23 @@ namespace HCI2.Komande
                 new KeyGesture(Key.M, ModifierKeys.Control | ModifierKeys.Shift)
             }
             );
+        public static RoutedUICommand Filtriranje = new RoutedUICommand(
+            "Otvara prozor za flitriranje",
+            "Filtriranje",
+            typeof(RoutedCommand),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.F, ModifierKeys.Control)
+            }
+            );
+        public static RoutedUICommand Pretraga = new RoutedUICommand(
+            "Fokusira se na polje za pretragu",
+            "Filtriranje",
+            typeof(RoutedCommand),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.S, ModifierKeys.Control)
+            }
+            );
     }
 }
