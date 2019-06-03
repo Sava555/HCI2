@@ -187,9 +187,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Data\etikete.bin" />
-    <None Include="Data\mapa1.bin" />
-    <None Include="Data\mapa2.bin" />
     <None Include="Data\tipoviLokala.bin" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

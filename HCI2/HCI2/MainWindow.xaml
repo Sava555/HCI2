@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:HCI2"
         xmlns:cmd="clr-namespace:HCI2.Komande"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="900">
+        Title="MainWindow" Height="600" Width="1010">
     <Window.CommandBindings>
         <CommandBinding Command="cmd:RoutedCommands.NoviLokal" Executed="NoviLokal"></CommandBinding>
         <CommandBinding Command="cmd:RoutedCommands.NoviTipLokal" Executed="NoviTipLokal"></CommandBinding>
@@ -62,10 +62,11 @@
         <ScrollViewer HorizontalScrollBarVisibility="Auto" Grid.Row="4" Grid.Column="1" Name="MyScrollViewer" CanContentScroll="True">
             <Image local:HelpProvider.HelpKey="mapa" Name="MyImage" HorizontalAlignment="Left" VerticalAlignment="Top" MouseWheel="UIElement_OnMouseWheel" AllowDrop="True" DragEnter="MyImage_DragEnter" Drop="MyImage_Drop" PreviewMouseLeftButtonDown="MyImage_PreviewMouseLeftButtonDown" MouseMove="MyImage_MouseMove" MouseUp="MyImage_MouseUp" />
         </ScrollViewer>
-       
-        <TextBox Name="searchTextBox" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" Grid.Row="4" TextWrapping="Wrap" Text="Lokal" VerticalAlignment="Top" Width="120"/>
+
+        <TextBox Name="searchTextBox" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" Grid.Row="4" TextWrapping="Wrap" Text="Pretraga" VerticalAlignment="Top" Width="120"/>
         <Button Name="searchButton" Content="Trazi" Grid.Column="2" HorizontalAlignment="Left" Margin="135,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="75" Height="23" Click="PretragaLokala"/>
         <Button Name="filterButton" Content="Filtriraj" Grid.Column="2" HorizontalAlignment="Left" Margin="215,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="75" Height="23" Click="FilterButton_Click"/>
-    
+        <Button Content="↺" Name="RefreshButton" Grid.Column="2" HorizontalAlignment="Left" Margin="295,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="33" Height="23" Click="RefreshButton_Click"/>
+
     </Grid>
 </Window>

@@ -122,7 +122,7 @@ namespace HCI2
                 catch
                 {
                     System.Media.SystemSounds.Beep.Play();
-                    MessageBox.Show("Nije BIlo moguce ucitati sliku");
+                    MessageBox.Show("Nije bilo moguce ucitati sliku");
                     return;
                 }
                 IconPath = targetPath;

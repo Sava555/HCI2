@@ -31,6 +31,7 @@ namespace HCI2
         public FormaLokal()
         {
             InitializeComponent();
+
         }
 
         public FormaLokal(MainWindow window)
