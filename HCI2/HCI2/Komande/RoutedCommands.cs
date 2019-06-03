@@ -94,5 +94,23 @@ namespace HCI2.Komande
                 new KeyGesture(Key.S, ModifierKeys.Control)
             }
             );
+        public static RoutedUICommand Demo = new RoutedUICommand(
+            "Pokrece demo",
+            "Demo",
+            typeof(RoutedCommand),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.F2)
+            }
+            );
+        public static RoutedUICommand EndDemo = new RoutedUICommand(
+            "Zavrsava demo",
+            "Demo",
+            typeof(RoutedCommand),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.Escape)
+            }
+            );
     }
 }

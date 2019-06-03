@@ -17,6 +17,7 @@
         <CommandBinding Command="cmd:RoutedCommands.PrebaciPodatke" Executed="PrebaciPodatke"></CommandBinding>
         <CommandBinding Command="cmd:RoutedCommands.Filtriranje" Executed="FilterButton_Click"></CommandBinding>
         <CommandBinding Command="cmd:RoutedCommands.Pretraga" Executed="FocusSerch"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.Demo" Executed="Demo"></CommandBinding>
         <CommandBinding Command="ApplicationCommands.Help" Executed="HelpBinding_Executed"></CommandBinding>
     </Window.CommandBindings>
     <Grid>
@@ -48,6 +49,7 @@
                 <MenuItem Header="_Promeni Mapu" local:HelpProvider.HelpKey="mapa" Command="cmd:RoutedCommands.PromeniMapu" ToolTip="Otvara prozor za promenu trenutne mape"></MenuItem>
                 <MenuItem Header="_Prebaci Podatke" local:HelpProvider.HelpKey="mapa" Command="cmd:RoutedCommands.PrebaciPodatke" ToolTip="Otvara prozor za prebacivanje podatak sa drugih mapa" IsEnabled="True"></MenuItem>
             </MenuItem>
+            <MenuItem Header="_Demo" Command="cmd:RoutedCommands.Demo" ToolTip="Pokrece demo video"></MenuItem>
         </Menu>
 
         <ListView Grid.Row="4" Grid.Column="2" ItemsSource="{Binding Items}" Name="lvDataBinding" PreviewMouseLeftButtonDown="LvDataBinding_PreviewMouseLeftButtonDown" MouseMove="LvDataBinding_MouseMove" MouseDoubleClick="ShowDetails" Margin="0,38,0,0">

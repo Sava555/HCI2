@@ -637,5 +637,11 @@ namespace HCI2
                 searchTextBox.Text = "Pretraga";
             }
         }
+
+        private void Demo(object sender, ExecutedRoutedEventArgs e)
+        {
+            Demo de = new Demo();
+            de.ShowDialog();
+        }
     }
 }

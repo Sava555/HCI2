@@ -73,6 +73,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Demo.xaml.cs">
+      <DependentUpon>Demo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DodajEtikete.xaml.cs">
       <DependentUpon>DodajEtikete.xaml</DependentUpon>
     </Compile>
@@ -100,6 +103,10 @@
     <Compile Include="TransferLokala.xaml.cs">
       <DependentUpon>TransferLokala.xaml</DependentUpon>
     </Compile>
+    <Page Include="Demo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DodajEtikete.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -187,7 +194,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Data\etikete.bin" />
     <None Include="Data\mapa1.bin" />
+    <None Include="Data\mapa2.bin" />
     <None Include="Data\tipoviLokala.bin" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -221,6 +230,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Data\1.png" />
+    <Content Include="Data\demo.mp4" />
     <Content Include="Data\Help\dodajetikete.htm" />
     <Content Include="Data\Help\editetiketa.htm" />
     <Content Include="Data\Help\editlokala.htm" />
