@@ -447,7 +447,14 @@ namespace HCI2
                 {
                     lokal.XPoint[this.ActiveMap] = x;
                     lokal.YPoint[this.ActiveMap] = y;
-                    FileIO.UpisiLokal(ActiveMap.Split('.')[0] + ".bin", this.Items);
+                    if (!f)
+                    {
+                        FileIO.UpisiLokal(ActiveMap.Split('.')[0] + ".bin", this.Items);
+                    }
+                    else
+                    {
+                        this.SacuvajLokale();
+                    }
                     this.renderMap();
                 }
             }
@@ -467,6 +474,10 @@ namespace HCI2
             {
                 foreach(Lokal lokal in this.Items)
                 {
+                    if (!lokal.XPoint.ContainsKey(this.ActiveMap))
+                    {
+                        continue;
+                    }
                     if(lokal.XPoint[this.ActiveMap] - picSize < startPoint.X && lokal.YPoint[this.ActiveMap] + picSize > startPoint.Y)
                     {
                         if(lokal.XPoint[this.ActiveMap] + picSize > startPoint.X && lokal.YPoint[this.ActiveMap] - picSize < startPoint.Y)
@@ -492,6 +503,10 @@ namespace HCI2
             for (int i = 0; i < this.Items.Count; i++)
             {
                 Lokal lokal = this.Items[i];
+                if (!lokal.XPoint.ContainsKey(this.ActiveMap))
+                {
+                    continue;
+                }
                 if (lokal.XPoint[this.ActiveMap] - picSize < startPoint.X && lokal.YPoint[this.ActiveMap] + picSize > startPoint.Y)
                 {
                     if (lokal.XPoint[this.ActiveMap] + picSize > startPoint.X && lokal.YPoint[this.ActiveMap] - picSize < startPoint.Y)

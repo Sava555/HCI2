@@ -197,6 +197,8 @@
     <None Include="Data\etikete.bin" />
     <None Include="Data\mapa1.bin" />
     <None Include="Data\mapa2.bin" />
+    <None Include="Data\mapa3.bin" />
+    <None Include="Data\mapa4.bin" />
     <None Include="Data\tipoviLokala.bin" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -229,6 +231,7 @@
     <Resource Include="Data\1.gif" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Data\tip4.jpg" />
     <Resource Include="Data\1.png" />
     <Content Include="Data\demo.mp4" />
     <Content Include="Data\Help\dodajetikete.htm" />
