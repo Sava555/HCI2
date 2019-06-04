@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI2"
         mc:Ignorable="d"
-        Title="Novi tip lokala" Height="262" Width="461.34">
+        Title="Novi tip lokala" Height="262" Width="460">
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Help" Executed="HelpBinding_Executed"></CommandBinding>
     </Window.CommandBindings>
@@ -38,6 +38,6 @@
         <Button Grid.Column="2" Grid.Row="4" Name="btnOpenFile" Click="btnOpenFile_Click">Izaberi ikonicu</Button>
 
 
-        <Button Grid.Column="2" Grid.RowSpan="2" Grid.Row="5" Width="Auto" Height="40" Click="Button_Click">Novi Tip Lokala</Button>
+        <Button Grid.Column="2" Grid.RowSpan="2" Grid.Row="5" Width="Auto" Height="40" Click="Button_Click">Dodaj Tip</Button>
     </Grid>
 </Window>

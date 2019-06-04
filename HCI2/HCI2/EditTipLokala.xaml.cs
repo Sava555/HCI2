@@ -68,7 +68,14 @@ namespace HCI2
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            
             TipLokala lo = this.Id.SelectedItem as TipLokala;
+            if (lo == null)
+            {
+                MessageBox.Show("Neophodno je odabrati postojeci tip!");
+                return;
+            }
+
             lo.Naziv = Naziv.Text;
             lo.Opis = Opis.Text;
             lo.Ikonica = IconPath.Equals("") ? lo.Ikonica : IconPath;

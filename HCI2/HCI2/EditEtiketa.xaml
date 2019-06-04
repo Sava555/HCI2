@@ -44,7 +44,7 @@
         <Label Grid.Column="1" Grid.Row="3">Odabir boje:</Label>
         <xctk:ColorPicker Grid.ColumnSpan="2" x:Name="ClrPcker" Grid.Column="2" Grid.Row="3"></xctk:ColorPicker>
 
-        <Button Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Width="100" Height="40" Click="Button_Click">Izmeni Etiketu</Button>
+        <Button Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Width="120" Height="40" Click="Button_Click">Izmeni Etiketu</Button>
 
         <Button Grid.Column="3" Grid.Row="4" Width="100" Height="40" Click="Button_Click_1">Obrisi</Button>
     </Grid>
